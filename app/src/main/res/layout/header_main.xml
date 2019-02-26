@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/header_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/x50"
+    android:background="@color/app_brown"
+    android:elevation="@dimen/x2"
+   >
+
+
+    <ImageView
+        android:id="@+id/btnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x3"
+        android:scaleType="fitXY"
+        android:padding="@dimen/x13"
+        android:src="@drawable/backarrow"
+        android:visibility="visible" />
+
+
+    <com.app.tobdon.ui.views.AnyTextView
+        android:id="@+id/txt_subHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/btnLeft"
+        android:layout_toStartOf="@+id/btnRight2"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x18"
+        app:typeface="@string/font_normal" />
+
+    <ImageView
+        android:id="@+id/btnRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/x15"
+        android:layout_toStartOf="@+id/btnRight2"
+        android:paddingTop="@dimen/x10"
+        android:paddingBottom="@dimen/x10"
+        android:paddingStart="@dimen/x5"
+        android:paddingEnd="@dimen/x5"
+        android:src="@drawable/notification"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/btnRight2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/x10"
+        android:paddingTop="@dimen/x10"
+        android:paddingBottom="@dimen/x10"
+        android:paddingStart="@dimen/x5"
+        android:paddingEnd="@dimen/x5"
+        android:src="@drawable/notification"
+        android:visibility="invisible"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnRight2"
+        android:layout_alignEnd="@+id/btnRight2"
+        android:layout_alignStart="@+id/btnRight2"
+        android:layout_alignTop="@+id/btnRight2">
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/badge_drawable"
+            android:gravity="center"
+            android:maxLength="2"
+            android:paddingBottom="@dimen/x3"
+            android:paddingLeft="@dimen/x4"
+            android:paddingRight="@dimen/x4"
+            android:paddingTop="@dimen/x3"
+            android:text="06"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x7"
+            android:visibility="gone"
+            app:typeface="@string/font_bold"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

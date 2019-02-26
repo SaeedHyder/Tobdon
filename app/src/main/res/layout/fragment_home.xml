@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.app.tobdon.ui.views.CustomRecyclerView
+        android:id="@+id/rv_homeFeeds"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/x10"
+        android:paddingTop="@dimen/x10" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/btn_star"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/x15"
+        app:elevation="@dimen/x6"
+        app:pressedTranslationZ="@dimen/x12"/>
+
+</android.support.design.widget.CoordinatorLayout>

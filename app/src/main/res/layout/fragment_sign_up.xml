@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/x20">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/full_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:maxLength="40"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/email_address"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLength="50"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_mobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:digits="1234567890+"
+                android:gravity="center"
+                android:hint="@string/mobile_number"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="20"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20">
+
+            <TextView
+                android:id="@+id/txt_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/country"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/Countrypicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_country"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x3"
+                android:gravity="center"
+                app:ccpDialog_showCloseIcon="false"
+                app:ccpDialog_showTitle="true"
+                app:ccpDialog_textColor="@color/app_black_text"
+                app:ccp_autoDetectCountry="false"
+                app:ccp_autoFormatNumber="false"
+                app:ccp_contentColor="@color/app_black_text"
+                app:ccp_defaultNameCode="AE"
+                app:ccp_showArrow="false"
+                app:ccp_showFlag="false"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false"
+                app:ccp_textGravity="CENTER"
+                app:ccp_textSize="@dimen/x14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/Countrypicker"
+                android:layout_alignBottom="@+id/Countrypicker"
+                android:src="@drawable/ccp_down_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/confirm_password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <Button
+            android:id="@+id/VerifyButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x45"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/x30"
+            android:background="@drawable/button_brown"
+            android:text="@string/verify_me"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x20"
+            android:layout_marginTop="@dimen/x30"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.app.tobdon.ui.views.AnyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_an_account"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14"
+                app:typeface="@string/font_normal" />
+
+            <com.app.tobdon.ui.views.AnyTextView
+                android:id="@+id/btnSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x5"
+                android:text="@string/sign_in_now"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/x14"
+                app:typeface="@string/font_normal" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
