@@ -113,6 +113,13 @@ public class TitleBar extends RelativeLayout {
 		}
 
 	}
+	public void showNotificationButton() {
+		btnRight2.setVisibility(View.VISIBLE);
+		btnRight2.setOnClickListener(notificationButtonListener);
+		btnRight2.setImageResource(R.drawable.notification);
+
+
+	}
 
 	public void showTitleBar() {
 		this.setVisibility(View.VISIBLE);

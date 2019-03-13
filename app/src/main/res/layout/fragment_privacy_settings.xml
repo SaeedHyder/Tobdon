@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/setting_back"
+        android:orientation="vertical">
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/view_line_color_3"
+            android:gravity="start"
+            android:paddingBottom="@dimen/x15"
+            android:paddingStart="@dimen/x15"
+            android:paddingTop="@dimen/x15"
+            android:text="@string/post_settings"
+            android:textColor="@color/app_dark_gray"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.app.tobdon.ui.views.AnyTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/x60"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x10"
+                android:paddingStart="@dimen/x15"
+                android:text="Post Location"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x14"
+                app:typeface="@string/font_normal" />
+
+            <Switch
+                android:id="@+id/btnPostLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x10"
+                android:buttonTint="@color/app_brown" />
+
+        </LinearLayout>
+
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/view_line_color_3"
+            android:gravity="start"
+            android:paddingBottom="@dimen/x15"
+            android:paddingStart="@dimen/x15"
+            android:paddingTop="@dimen/x15"
+            android:text="@string/post_tagging"
+            android:textColor="@color/app_dark_gray"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x15"
+            android:layout_marginTop="@dimen/x15"
+            android:layout_marginBottom="@dimen/x15"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_anyone_to_tag_you_in_posts"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_only_people_you_follow_to_tag_you_in_posts"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_people_follow_me_to_tag_me_in_posts"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/do_not_allow_anyone_to_tag_me_in_post"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+        </RadioGroup>
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/view_line_color_3"
+            android:gravity="start"
+            android:paddingBottom="@dimen/x15"
+            android:paddingStart="@dimen/x15"
+            android:paddingTop="@dimen/x15"
+            android:text="@string/discoverability"
+            android:textColor="@color/app_dark_gray"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x15"
+            android:layout_marginTop="@dimen/x15"
+            android:layout_marginBottom="@dimen/x15"
+            android:orientation="vertical">
+
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/let_others_find_you_by_your_email_address"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/let_other_find_you_by_your_phone_number"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+        </LinearLayout>
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/view_line_color_3"
+            android:gravity="start"
+            android:paddingBottom="@dimen/x15"
+            android:paddingStart="@dimen/x15"
+            android:paddingTop="@dimen/x15"
+            android:text="@string/direct_messages"
+            android:textColor="@color/app_dark_gray"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x15"
+            android:layout_marginTop="@dimen/x15"
+            android:layout_marginBottom="@dimen/x15"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_anyone_to_send_direct_message"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_only_people_you_follow_to_send_direct_message"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_people_who_follow_me_to_send_direct_message"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/do_not_allow_anyone_to_send_direct_message"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+        </RadioGroup>
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/view_line_color_3"
+            android:gravity="start"
+            android:paddingBottom="@dimen/x15"
+            android:paddingStart="@dimen/x15"
+            android:paddingTop="@dimen/x15"
+            android:text="@string/safety"
+            android:textColor="@color/app_dark_gray"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x15"
+            android:layout_marginTop="@dimen/x15"
+            android:layout_marginBottom="@dimen/x15"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/hide_sensitive_content_that_may_be_too_disturbing"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x4"
+                android:buttonTint="@color/app_brown"
+                android:gravity="center_vertical"
+                android:text="@string/allow_sensitive_content_that_may_be_too_disturbing"
+                android:textColor="@color/profile_gray"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/view_line_color_3" />
+
+
+        </RadioGroup>
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>

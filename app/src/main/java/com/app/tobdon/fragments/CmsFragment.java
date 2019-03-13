@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.app.tobdon.R;
 import com.app.tobdon.fragments.abstracts.BaseFragment;
 import com.app.tobdon.ui.views.AnyTextView;
+import com.app.tobdon.ui.views.TitleBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,5 +63,13 @@ public class CmsFragment extends BaseFragment {
 
     }
 
-
+    @Override
+    public void setTitleBar(TitleBar titleBar) {
+        super.setTitleBar(titleBar);
+        titleBar.hideButtons();
+        titleBar.showBackButton();
+        if(title!=null) {
+            titleBar.setSubHeading(title);
+        }
+    }
 }

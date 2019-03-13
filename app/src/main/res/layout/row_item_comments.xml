@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/x5"
+    android:paddingStart="@dimen/x5">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/x50"
+        android:layout_height="@dimen/x50"
+        android:src="@drawable/placeholder_thumb" />
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="@dimen/x1"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ll_text"
+        android:layout_below="@+id/ivImage"
+        android:layout_marginStart="@dimen/x25"
+        android:background="@color/view_line_color_4" />
+
+    <LinearLayout
+        android:id="@+id/ll_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x8"
+        android:layout_marginTop="@dimen/x5"
+
+        android:layout_toEndOf="@+id/ivImage"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Jonathan Chen"
+            android:textColor="@color/app_black_text"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_normal" />
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="03:20 AM"
+            android:textColor="@color/tab_text_color"
+            android:textSize="@dimen/x10"
+            app:typeface="@string/font_normal" />
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x4"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@string/lorem_small"
+            android:textColor="@color/profile_gray"
+            android:textSize="@dimen/x12"
+            app:typeface="@string/font_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x5"
+            android:orientation="horizontal">
+
+            <com.app.tobdon.ui.views.AnyTextView
+                android:id="@+id/btnLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x4"
+                android:text="Liked"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+            <com.app.tobdon.ui.views.AnyTextView
+                android:id="@+id/btnComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x15"
+                android:layout_marginTop="@dimen/x4"
+                android:text="Comment"
+                android:textColor="@color/app_gray"
+                android:textSize="@dimen/x12"
+                app:typeface="@string/font_normal" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color_3" />
+
+        <com.app.tobdon.ui.views.CustomRecyclerView
+            android:id="@+id/rvComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingBottom="@dimen/x10"
+            android:visibility="gone"
+            android:paddingTop="@dimen/x7" />
+
+    </LinearLayout>
+
+</RelativeLayout>

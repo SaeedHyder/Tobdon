@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_back"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x3"
+                android:layout_marginEnd="@dimen/x15"
+                android:layout_marginStart="@dimen/x15"
+                android:layout_marginTop="@dimen/x10"
+                app:cardCornerRadius="@dimen/x2"
+                app:cardElevation="@dimen/x5">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/x10">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_profile"
+                            android:layout_width="@dimen/x60"
+                            android:layout_height="@dimen/x60"
+                            android:src="@drawable/placeholder_thumb" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/x5"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <com.app.tobdon.ui.views.AnyTextView
+                                android:id="@+id/txtName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="Emma Smith"
+                                android:textColor="@color/app_brown"
+                                android:textSize="@dimen/x15"
+                                app:typeface="@string/font_normal" />
+
+                            <com.app.tobdon.ui.views.AnyTextView
+                                android:id="@+id/txtAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/x5"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="Dubai,UAE"
+                                android:textColor="@color/app_gray"
+                                android:textSize="@dimen/x14"
+                                app:typeface="@string/font_normal" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_feedImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x180"
+                        android:background="@drawable/placeholder_thumb" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/x10">
+
+                        <com.app.tobdon.ui.views.AnyTextView
+                            android:id="@+id/txtDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="@string/lorem_small"
+                            android:textColor="@color/app_gray"
+                            android:textSize="@dimen/x14"
+                            app:typeface="@string/font_normal" />
+
+                        <com.app.tobdon.ui.views.AnyTextView
+                            android:id="@+id/txtDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/txtDescription"
+                            android:layout_marginTop="@dimen/x10"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="1:38PM 15 Mar 2018"
+                            android:textColor="@color/app_brown"
+                            android:textSize="@dimen/x12"
+                            app:typeface="@string/font_normal" />
+
+                        <com.app.tobdon.ui.views.AnyTextView
+                            android:id="@+id/txtLikes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtDescription"
+                            android:layout_marginEnd="@dimen/x10"
+                            android:layout_marginTop="@dimen/x10"
+                            android:layout_toStartOf="@+id/txtShares"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="9,764 Likes"
+                            android:textColor="@color/app_brown"
+                            android:textSize="@dimen/x12"
+                            app:typeface="@string/font_normal" />
+
+                        <com.app.tobdon.ui.views.AnyTextView
+                            android:id="@+id/txtShares"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@+id/txtDescription"
+                            android:layout_marginTop="@dimen/x10"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="764 Shares"
+                            android:textColor="@color/app_brown"
+                            android:textSize="@dimen/x12"
+                            app:typeface="@string/font_normal" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:background="@color/view_line_color_2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x40"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/btnLike"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/x8"
+                            android:src="@drawable/button_selector" />
+
+                        <View
+                            android:layout_width="@dimen/x1"
+                            android:layout_height="match_parent"
+                            android:background="@color/view_line_color_2" />
+
+                        <ImageView
+                            android:id="@+id/btnComment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/x8"
+                            android:src="@drawable/button_selector" />
+
+                        <View
+                            android:layout_width="@dimen/x1"
+                            android:layout_height="match_parent"
+                            android:background="@color/view_line_color_2" />
+
+                        <ImageView
+                            android:id="@+id/btnShare"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/x8"
+                            android:src="@drawable/button_selector" />
+
+                        <View
+                            android:layout_width="@dimen/x1"
+                            android:layout_height="match_parent"
+                            android:background="@color/view_line_color_2" />
+
+                        <ImageView
+                            android:id="@+id/btnLPopup"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/x8"
+                            android:src="@drawable/button_selector" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <com.app.tobdon.ui.views.CustomRecyclerView
+                android:id="@+id/rvComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/x15"
+                android:layout_marginStart="@dimen/x15"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="@dimen/x10"
+                android:paddingTop="@dimen/x10" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/comment_box_color"
+        android:gravity="center_vertical"
+        android:padding="@dimen/x8"
+        android:orientation="horizontal">
+
+        <com.app.tobdon.ui.views.AnyEditTextView
+            android:id="@+id/edtMessage"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_white_button_2"
+            android:hint="@string/write_your_comment_here"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingBottom="@dimen/x8"
+            android:paddingEnd="@dimen/x10"
+            android:paddingStart="@dimen/x10"
+            android:paddingTop="@dimen/x8"
+            android:textColor="@color/app_black_text"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_normal" />
+
+        <ImageView
+            android:id="@+id/btnSend"
+            android:layout_width="@dimen/x20"
+            android:layout_height="@dimen/x20"
+            android:layout_marginStart="@dimen/x8"
+            android:src="@drawable/like3"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

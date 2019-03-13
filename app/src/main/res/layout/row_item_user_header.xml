@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.app.tobdon.ui.views.AnyTextView
+        android:id="@+id/txtHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x30"
+        android:text="A"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/x15"
+        android:background="@color/user_box_color"
+        app:typeface="@string/font_normal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x10"
+        android:layout_marginEnd="@dimen/x15"
+        android:layout_marginStart="@dimen/x15"
+        android:layout_marginTop="@dimen/x15"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:src="@drawable/placeholder_thumb" />
+
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_marginStart="@dimen/x5"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="Peter Griffin"
+            android:textColor="@color/app_brown"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_normal" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_marginEnd="@dimen/x15"
+        android:layout_marginStart="@dimen/x15"
+        android:background="@color/user_box_color" />
+
+
+</LinearLayout>

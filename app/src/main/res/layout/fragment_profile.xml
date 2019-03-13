@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_back"
+    android:onClick="onClick"
+    android:orientation="vertical">
+
+    <com.app.tobdon.ui.views.AnyTextView
+        android:id="@+id/txt_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/connection_lost"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/x15"
+        android:visibility="gone"
+        app:typeface="@string/font_normal" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/mainFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x130"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/placeholder_thumb" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_profilePic"
+                        android:layout_width="@dimen/x80"
+                        android:layout_height="@dimen/x80"
+                        android:layout_below="@+id/iv_banner"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/x40_"
+                        android:src="@drawable/placeholder_thumb" />
+
+                    <com.app.tobdon.ui.views.AnyTextView
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_profilePic"
+                        android:layout_marginTop="@dimen/x5"
+                        android:layout_marginBottom="@dimen/x10"
+                        android:gravity="center"
+                        android:text="Peter Griffin"
+                        android:textColor="@color/app_brown"
+                        android:textSize="@dimen/x15"
+                        app:typeface="@string/font_normal" />
+
+                </RelativeLayout>
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/x5"
+                android:paddingBottom="@dimen/x5"
+                android:elevation="@dimen/x5"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/transparent"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="fixed"
+                app:tabPadding="0dp"
+                app:tabSelectedTextColor="@color/app_brown"
+                app:tabTextAppearance="@style/MineCustomTabText"
+                app:tabTextColor="@color/tab_text_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/view_line_color" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

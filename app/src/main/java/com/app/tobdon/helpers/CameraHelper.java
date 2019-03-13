@@ -13,8 +13,10 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.ImageView;
 
+import com.app.tobdon.activities.MainActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class CameraHelper {
@@ -344,6 +346,25 @@ public class CameraHelper {
 
 		alert.show();
 
+	}
+
+	public static void uploadPhotoDialog(final MainActivity activity) {
+
+		DialogHelper dialogHelper=new DialogHelper(activity);
+		dialogHelper.cameraPicker(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				activity.takePicture();
+				dialogHelper.hideDialog();
+			}
+		}, new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				activity.captureVideo();
+				dialogHelper.hideDialog();
+			}
+		});
+		dialogHelper.showDialog();
 	}
 
 }

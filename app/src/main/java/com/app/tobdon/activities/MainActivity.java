@@ -1,5 +1,8 @@
 package com.app.tobdon.activities;
 
+import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.TabLayout;
@@ -16,10 +19,15 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.tobdon.R;
+import com.app.tobdon.fragments.ActivityLogFragment;
 import com.app.tobdon.fragments.HomeFragment;
+import com.app.tobdon.fragments.MessagesFragment;
 import com.app.tobdon.fragments.NotificationsFragment;
+import com.app.tobdon.fragments.ProfileFragment;
+import com.app.tobdon.fragments.SettingFragment;
 import com.app.tobdon.fragments.SideMenuFragment;
 import com.app.tobdon.fragments.TutorialFragment;
 import com.app.tobdon.fragments.abstracts.BaseFragment;
@@ -27,14 +35,28 @@ import com.app.tobdon.global.SideMenuChooser;
 import com.app.tobdon.global.SideMenuDirection;
 import com.app.tobdon.helpers.ScreenHelper;
 import com.app.tobdon.helpers.UIHelper;
+import com.app.tobdon.interfaces.ImageSetter;
 import com.app.tobdon.residemenu.ResideMenu;
 import com.app.tobdon.ui.views.TitleBar;
+import com.kbeanie.imagechooser.api.ChooserType;
+import com.kbeanie.imagechooser.api.ChosenImage;
+import com.kbeanie.imagechooser.api.ChosenImages;
+import com.kbeanie.imagechooser.api.ChosenVideo;
+import com.kbeanie.imagechooser.api.ChosenVideos;
+import com.kbeanie.imagechooser.api.ImageChooserListener;
+import com.kbeanie.imagechooser.api.ImageChooserManager;
+import com.kbeanie.imagechooser.api.VideoChooserListener;
+import com.kbeanie.imagechooser.api.VideoChooserManager;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends DockActivity implements OnClickListener {
+public class MainActivity extends DockActivity implements OnClickListener, ImageChooserListener, VideoChooserListener {
     public TitleBar titleBar;
     @BindView(R.id.sideMneuFragmentContainer)
     public FrameLayout sideMneuFragmentContainer;
@@ -50,6 +72,8 @@ public class MainActivity extends DockActivity implements OnClickListener {
     DrawerLayout drawerLayout;
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
+    private String address = "";
+    private String country = "";
 
     private ResideMenu resideMenu;
 
@@ -57,6 +81,21 @@ public class MainActivity extends DockActivity implements OnClickListener {
 
     private String sideMenuType;
     private String sideMenuDirection;
+
+    private ImageChooserManager imageChooserManager;
+    private VideoChooserManager videoChooserManager;
+    private int chooserType;
+    private String filePath;
+    private String originalFilePath;
+    private String thumbnailFilePath;
+    private String thumbnailSmallFilePath;
+    private boolean isActivityResultOver = false;
+    private ImageSetter imageSetter;
+    private String TAG;
+
+    public void setImageSetter(ImageSetter imageSetter) {
+        this.imageSetter = imageSetter;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -321,35 +360,29 @@ public class MainActivity extends DockActivity implements OnClickListener {
 
             TextView tabOne = (TextView) LayoutInflater.from(getDockActivity()).inflate(R.layout.custom_tab, null).findViewById(R.id.tabText);
             tabOne.setText(getResString(R.string.home));
-            tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+            tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
+            tabOne.setTextColor(getDockActivity().getResources().getColor(R.color.app_brown));
             tabLayout.addTab(tabLayout.newTab().setCustomView(tabOne));
 
             TextView tabTwo = (TextView) LayoutInflater.from(getDockActivity()).inflate(R.layout.custom_tab, null).findViewById(R.id.tabText);
             tabTwo.setText(getResString(R.string.activity));
-            tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+            tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.activity1, 0, 0);
             tabLayout.addTab(tabLayout.newTab().setCustomView(tabTwo));
 
             TextView tabThree = (TextView) LayoutInflater.from(getDockActivity()).inflate(R.layout.custom_tab, null).findViewById(R.id.tabText);
             tabThree.setText(getResString(R.string.trending));
-            tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+            tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.trending1, 0, 0);
             tabLayout.addTab(tabLayout.newTab().setCustomView(tabThree));
 
             TextView tabFour = (TextView) LayoutInflater.from(getDockActivity()).inflate(R.layout.custom_tab, null).findViewById(R.id.tabText);
             tabFour.setText(getResString(R.string.profile));
-            tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+            tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.profile1, 0, 0);
             tabLayout.addTab(tabLayout.newTab().setCustomView(tabFour));
 
             TextView tabFive = (TextView) LayoutInflater.from(getDockActivity()).inflate(R.layout.custom_tab, null).findViewById(R.id.tabText);
             tabFive.setText(getResString(R.string.settings));
-            tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+            tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.settings1, 0, 0);
             tabLayout.addTab(tabLayout.newTab().setCustomView(tabFive));
-
-
-           /* tabLayout.addTab(tabLayout.newTab().setText(getResString(R.string.home)).setIcon(R.drawable.like4));
-            tabLayout.addTab(tabLayout.newTab().setText(getResString(R.string.activity)).setIcon(R.drawable.hotelico));
-            tabLayout.addTab(tabLayout.newTab().setText(getResString(R.string.trending)).setIcon(R.drawable.like3));
-            tabLayout.addTab(tabLayout.newTab().setText(getResString(R.string.profile)).setIcon(R.drawable.hotelico));
-            tabLayout.addTab(tabLayout.newTab().setText(getResString(R.string.settings)).setIcon(R.drawable.like3));*/
 
 
             TabLayout.Tab tab = tabLayout.getTabAt(0);
@@ -365,39 +398,25 @@ public class MainActivity extends DockActivity implements OnClickListener {
 
                     if (tab.getPosition() == 0) {
                         txtTab.setText(getResString(R.string.home));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 1) {
                         txtTab.setText(getResString(R.string.activity));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.activity, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 2) {
                         txtTab.setText(getResString(R.string.trending));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.trending, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 3) {
                         txtTab.setText(getResString(R.string.profile));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.profile, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 4) {
                         txtTab.setText(getResString(R.string.settings));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like4, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.settings, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     }
-
-                   /* if (tab.getPosition() == 0) {
-                        tab.setIcon(R.drawable.like4);
-                    } else if (tab.getPosition() == 1) {
-                        tab.setIcon(R.drawable.like4);
-                    } else if (tab.getPosition() == 2) {
-                        tab.setIcon(R.drawable.like4);
-                        tab.setIcon(R.drawable.like4);
-                    } else if (tab.getPosition() == 3) {
-                        tab.setIcon(R.drawable.like4);
-                    } else if (tab.getPosition() == 4) {
-                        tab.setIcon(R.drawable.like4);
-                           tabLayout.setTabTextColors(getDockActivity().getResources().getColor(R.color.tab_text_color), getDockActivity().getResources().getColor(R.color.app_brown));
-                    }*/
 
                     setData(tab);
                 }
@@ -409,38 +428,26 @@ public class MainActivity extends DockActivity implements OnClickListener {
                     txtTab.setTextColor(getDockActivity().getResources().getColor(R.color.tab_text_color));
                     if (tab.getPosition() == 0) {
                         txtTab.setText(getResString(R.string.home));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home1, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 1) {
                         txtTab.setText(getResString(R.string.activity));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.activity1, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 2) {
                         txtTab.setText(getResString(R.string.trending));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.trending1, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 3) {
                         txtTab.setText(getResString(R.string.profile));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.profile1, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     } else if (tab.getPosition() == 4) {
                         txtTab.setText(getResString(R.string.settings));
-                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.like3, 0, 0);
+                        txtTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.settings1, 0, 0);
                         tabLayout.getTabAt(tab.getPosition()).setCustomView(txtTab);
                     }
-                   /* if (tab.getPosition() == 0) {
-                        tab.setIcon(R.drawable.like3);
-                    } else if (tab.getPosition() == 1) {
-                        tab.setIcon(R.drawable.like3);
-                    } else if (tab.getPosition() == 2) {
-                        tab.setIcon(R.drawable.like3);
-                    } else if (tab.getPosition() == 3) {
-                        tab.setIcon(R.drawable.like3);
-                    } else if (tab.getPosition() == 4) {
-                        tab.setIcon(R.drawable.like3);
-                    }
-                      tabLayout.setTabTextColors(getDockActivity().getResources().getColor(R.color.tab_text_color), getDockActivity().getResources().getColor(R.color.app_brown));*/
-                     }
+                }
 
                 @Override
                 public void onTabReselected(TabLayout.Tab tab) {
@@ -453,14 +460,22 @@ public class MainActivity extends DockActivity implements OnClickListener {
     private void setData(TabLayout.Tab tab) {
 
         if (tab.getPosition() == 0) {
-
+            getDockActivity().popBackStackTillEntry(0);
+            getDockActivity().replaceDockableFragment(HomeFragment.newInstance(), "HomeFragment");
         } else if (tab.getPosition() == 1) {
-
+            getDockActivity().popBackStackTillEntry(0);
+            getDockActivity().replaceDockableFragment(ActivityLogFragment.newInstance(), "ActivityLogFragment");
         } else if (tab.getPosition() == 2) {
+            getDockActivity().popBackStackTillEntry(0);
+            getDockActivity().replaceDockableFragment(MessagesFragment.newInstance(), "MessagesFragment");
 
         } else if (tab.getPosition() == 3) {
+            getDockActivity().popBackStackTillEntry(0);
+            getDockActivity().replaceDockableFragment(ProfileFragment.newInstance(), "ProfileFragment");
 
         } else if (tab.getPosition() == 4) {
+            getDockActivity().popBackStackTillEntry(0);
+            getDockActivity().replaceDockableFragment(SettingFragment.newInstance(), "SettingFragment");
 
         }
     }
@@ -478,11 +493,201 @@ public class MainActivity extends DockActivity implements OnClickListener {
         FragmentManager manager;
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-      //  transaction.add(R.id.fragmentContainer, frag);
+        //  transaction.add(R.id.fragmentContainer, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
 
 
     }
 
+    public String getCurrentAddress(double lat, double lng) {
+        try {
+
+
+            Geocoder geocoder;
+            List<Address> addresses;
+            geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+            addresses = geocoder.getFromLocation(lat, lng, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            if (addresses.size() > 0) {
+                address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+            }
+
+            if (addresses.size() > 0) {
+                country = addresses.get(0).getCountryName();
+            }
+
+            return address + ", " + country;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && (requestCode == ChooserType.REQUEST_PICK_PICTURE || requestCode == ChooserType.REQUEST_CAPTURE_PICTURE)) {
+            if (imageChooserManager == null) {
+                reinitializeImageChooser();
+            }
+            imageChooserManager.submit(requestCode, data);
+        }
+        if (resultCode == RESULT_OK && (requestCode == ChooserType.REQUEST_CAPTURE_VIDEO || requestCode == ChooserType.REQUEST_PICK_VIDEO)) {
+            if (videoChooserManager == null) {
+                reinitializeVideoChooser();
+            }
+            videoChooserManager.submit(requestCode, data);
+        }
+
+    }
+
+    private void reinitializeImageChooser() {
+        imageChooserManager = new ImageChooserManager(this, chooserType, true);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(Intent.EXTRA_ALLOW_MULTIPLE, false);
+        imageChooserManager.setExtras(bundle);
+        imageChooserManager.setImageChooserListener(this);
+        imageChooserManager.reinitialize(filePath);
+    }
+
+    private void reinitializeVideoChooser() {
+        videoChooserManager = new VideoChooserManager(this, chooserType, true);
+        videoChooserManager.setVideoChooserListener(this);
+        videoChooserManager.reinitialize(filePath);
+    }
+
+    public void chooseImage() {
+        chooserType = ChooserType.REQUEST_PICK_PICTURE;
+        imageChooserManager = new ImageChooserManager(this,
+                ChooserType.REQUEST_PICK_PICTURE, true);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        imageChooserManager.setExtras(bundle);
+        imageChooserManager.setImageChooserListener(this);
+        imageChooserManager.clearOldFiles();
+        try {
+            //pbar.setVisibility(View.VISIBLE);
+            filePath = imageChooserManager.choose();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void takePicture() {
+        chooserType = ChooserType.REQUEST_CAPTURE_PICTURE;
+        imageChooserManager = new ImageChooserManager(this,
+                ChooserType.REQUEST_CAPTURE_PICTURE, true);
+        imageChooserManager.setImageChooserListener(this);
+        try {
+            //pbar.setVisibility(View.VISIBLE);
+            filePath = imageChooserManager.choose();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onImageChosen(final ChosenImage image) {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                isActivityResultOver = true;
+                originalFilePath = image.getFilePathOriginal();
+                thumbnailFilePath = image.getFileThumbnail();
+                thumbnailSmallFilePath = image.getFileThumbnailSmall();
+
+                if (image != null) {
+                    imageSetter.setImage(originalFilePath);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onError(final String reason) {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Log.i(TAG, "OnError: " + reason);
+                Toast.makeText(MainActivity.this, reason, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    @Override
+    public void onImagesChosen(final ChosenImages images) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "On Images Chosen: " + images.size());
+                onImageChosen(images.getImage(0));
+            }
+        });
+
+    }
+
+    public void captureVideo() {
+        chooserType = ChooserType.REQUEST_CAPTURE_VIDEO;
+        videoChooserManager = new VideoChooserManager(this,
+                ChooserType.REQUEST_CAPTURE_VIDEO);
+        videoChooserManager.setVideoChooserListener(this);
+        try {
+            filePath = videoChooserManager.choose();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pickVideo(View view) {
+        chooserType = ChooserType.REQUEST_PICK_VIDEO;
+        videoChooserManager = new VideoChooserManager(this,
+                ChooserType.REQUEST_PICK_VIDEO);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        videoChooserManager.setExtras(bundle);
+        videoChooserManager.setVideoChooserListener(this);
+        try {
+            videoChooserManager.choose();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onVideoChosen(final ChosenVideo video) {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if (video != null) {
+                    imageSetter.setVideo(video.getVideoFilePath(), video.getThumbnailPath());
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void onVideosChosen(final ChosenVideos videos) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(getClass().getName(), "run: Videos Chosen: " + videos.size());
+                onVideoChosen(videos.getImage(0));
+            }
+        });
+    }
 
 }

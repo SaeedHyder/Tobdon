@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/x20">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/user_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:maxLength="40"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:textColorHint="@color/app_brown">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="@string/email_address"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLength="50"
+                android:paddingTop="@dimen/x10"
+                android:textColor="@color/app_black_text"
+                android:textSize="@dimen/x14" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/x20">
+
+            <TextView
+                android:id="@+id/txt_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/language"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <Spinner
+                android:id="@+id/spLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x35"
+                android:layout_marginTop="@dimen/x6"
+                android:layout_below="@+id/txt_language"
+                android:layout_centerInParent="true"
+                android:gravity="center" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/login_verification_new_device"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/x8"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/btnYesLoginVer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/x4"
+                    android:textSize="@dimen/x12"
+                    android:textColor="@color/app_black_text"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/btnNoLoginVer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:layout_marginStart="@dimen/x4"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/app_black_text"
+                    android:textSize="@dimen/x12"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/password_reset_verification"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/x8"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/btnYesPasswordVer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/x4"
+                    android:textSize="@dimen/x12"
+                    android:text="@string/yes"
+                    android:textColor="@color/app_black_text"/>
+
+                <RadioButton
+                    android:id="@+id/btnNoPasswordVer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:layout_marginStart="@dimen/x4"
+                    android:gravity="end|center_vertical"
+                    android:textSize="@dimen/x12"
+                    android:textColor="@color/app_black_text"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20">
+
+            <TextView
+                android:id="@+id/txt_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/country"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/Countrypicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_country"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x3"
+                android:gravity="center"
+                app:ccpDialog_showCloseIcon="false"
+                app:ccpDialog_showTitle="true"
+                app:ccpDialog_textColor="@color/app_black_text"
+                app:ccp_autoDetectCountry="false"
+                app:ccp_autoFormatNumber="false"
+                app:ccp_contentColor="@color/app_black_text"
+                app:ccp_defaultNameCode="AE"
+                app:ccp_showArrow="false"
+                app:ccp_showFlag="false"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false"
+                app:ccp_textGravity="CENTER"
+                app:ccp_textSize="@dimen/x14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/Countrypicker"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/Countrypicker"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ccp_down_arrow" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="@string/videos"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/x8"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/btnYesVideos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/x4"
+                    android:textSize="@dimen/x12"
+                    android:textColor="@color/app_black_text"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/btnNoVideos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/app_brown"
+                    android:layout_marginStart="@dimen/x4"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/app_black_text"
+                    android:textSize="@dimen/x12"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="@string/interest"
+                android:textColor="@color/app_brown"
+                android:textSize="@dimen/x11" />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/x6">
+               
+               <CheckBox
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:buttonTint="@color/app_brown"
+                   android:text="Political"
+                   android:textSize="@dimen/x10"
+                   android:textColor="@color/app_black_text"
+                  />
+
+               <CheckBox
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:buttonTint="@color/app_brown"
+                   android:text="Social"
+                   android:textSize="@dimen/x10"
+                   android:textColor="@color/app_black_text"
+                   />
+
+               <CheckBox
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:buttonTint="@color/app_brown"
+                   android:text="News"
+                   android:textSize="@dimen/x10"
+                   android:textColor="@color/app_black_text"
+                   />
+               
+           </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x6">
+
+                <CheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/app_brown"
+                    android:text="Geographical"
+                    android:textSize="@dimen/x10"
+                    android:textColor="@color/app_black_text"
+                    />
+
+                <CheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/app_brown"
+                    android:text="Environmental"
+                    android:textSize="@dimen/x10"
+                    android:textColor="@color/app_black_text"
+                    />
+
+                <CheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/app_brown"
+                    android:text="Media"
+                    android:textSize="@dimen/x10"
+                    android:textColor="@color/app_black_text"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@color/view_line_color" />
+
+
+    </LinearLayout>
+</ScrollView>

@@ -18,4 +18,7 @@ public class AppConstants {
     public static String DateFormat_HM = "HH:mm";
     public static String DateFormat_YMDHMS = "yyyy-MM-dd HH:mm:ss";
 
+    public static String PHOTO= "photo";
+    public static String VIDEO= "video";
+
 }

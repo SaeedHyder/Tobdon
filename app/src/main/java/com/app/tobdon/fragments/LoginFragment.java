@@ -2,6 +2,7 @@ package com.app.tobdon.fragments;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +59,6 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
     }
 

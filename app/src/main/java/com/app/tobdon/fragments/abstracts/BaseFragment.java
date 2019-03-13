@@ -16,6 +16,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.andreabaccega.formedittextvalidator.Validator;
 import com.app.tobdon.R;
@@ -31,6 +32,11 @@ import com.app.tobdon.retrofit.WebService;
 import com.app.tobdon.retrofit.WebServiceFactory;
 import com.app.tobdon.ui.views.AnyEditTextView;
 import com.app.tobdon.ui.views.TitleBar;
+import com.kbeanie.imagechooser.api.ChooserType;
+import com.kbeanie.imagechooser.api.ChosenImage;
+import com.kbeanie.imagechooser.api.ChosenImages;
+import com.kbeanie.imagechooser.api.ImageChooserListener;
+import com.kbeanie.imagechooser.api.ImageChooserManager;
 
 
 public abstract class BaseFragment extends Fragment implements webServiceResponseLisener {
@@ -53,7 +59,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 		super.onCreate( savedInstanceState );
 		prefHelper = new BasePreferenceHelper(getContext());
 
-
+		getMainActivity().hideTabLayout();
 		mGpsTracker = new GPSTracker(getDockActivity());
 
 		if (webService == null) {
@@ -69,11 +75,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	@Override
 	public void onResume() {
 		super.onResume();
-	//	setTitleBar( ((MainActivity) getDockActivity()).titleBar );
 
-		if(getMainActivity().getDrawerLayout() != null){
-			getMainActivity().closeDrawer();
-		}
 	}
 	public void fragmentResume() {
 		setTitleBar(((MainActivity) getDockActivity()).titleBar);
@@ -328,5 +330,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 			return source;
 		}
 	}
+
+
 
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x15"
+        android:layout_marginEnd="@dimen/x15"
+        android:layout_marginTop="@dimen/x15"
+        android:layout_marginBottom="@dimen/x10"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:src="@drawable/placeholder_thumb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/x5"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+                <com.app.tobdon.ui.views.AnyTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Peter Griffin"
+                    android:textColor="@color/app_brown"
+                    android:textSize="@dimen/x14"
+                    app:typeface="@string/font_normal" />
+
+                <com.app.tobdon.ui.views.AnyTextView
+                    android:id="@+id/txtDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="I like the way you have explained the sadasdasdsd"
+                    android:textColor="@color/app_gray"
+                    android:textSize="@dimen/x13"
+                    app:typeface="@string/font_normal" />
+
+
+
+
+        </LinearLayout>
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x2"
+            android:textColor="@color/app_black_text"
+            android:textSize="@dimen/x10"
+            app:typeface="@string/font_normal"
+            android:text="10 min ago" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_marginStart="@dimen/x15"
+        android:layout_marginEnd="@dimen/x15"
+        android:background="@color/view_line_color"/>
+
+
+</LinearLayout>

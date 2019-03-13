@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/x12">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:src="@drawable/placeholder_thumb" />
+
+        <com.app.tobdon.ui.views.AnyTextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:maxLines="2"
+            android:paddingStart="@dimen/x10"
+            android:text="Peter Griffin"
+            android:textColor="@color/app_brown"
+            android:textSize="@dimen/x14"
+            app:typeface="@string/font_normal" />
+
+        <Button
+            android:id="@+id/btnFollow"
+            android:layout_width="@dimen/x90"
+            android:layout_height="@dimen/x30"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/rounded_white_button"
+            android:text="@string/follow"
+            android:textAllCaps="false"
+            android:textColor="@color/app_brown"
+            android:textSize="@dimen/x14" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/view_line_color_3" />
+
+</LinearLayout>

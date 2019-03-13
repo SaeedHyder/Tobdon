@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x3"
+        android:layout_marginEnd="@dimen/x10"
+        android:layout_marginStart="@dimen/x10"
+        android:layout_marginTop="@dimen/x10"
+        app:cardCornerRadius="@dimen/x4"
+        app:cardElevation="@dimen/x5">
+
+        <com.app.tobdon.ui.views.AnyEditTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:textColor="@color/profile_gray"
+            android:textSize="@dimen/x14"
+            android:paddingStart="@dimen/x10"
+            android:paddingEnd="@dimen/x10"
+            android:paddingTop="@dimen/x8"
+            android:hint="@string/search"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:inputType="text"
+            android:drawableEnd="@drawable/places_ic_search"
+            android:paddingBottom="@dimen/x8"
+            app:typeface="@string/font_normal"/>
+
+    </android.support.v7.widget.CardView>
+
+    <com.app.tobdon.ui.views.AnyTextView
+        android:id="@+id/txt_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_post_found"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/x15"
+        android:visibility="gone"
+        app:typeface="@string/font_normal" />
+
+    <com.app.tobdon.ui.views.CustomRecyclerView
+        android:id="@+id/rv_Followers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingBottom="@dimen/x10" />
+
+</LinearLayout>

@@ -22,12 +22,15 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="colorAccent">@color/app_brown</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
     </style>
 
 
     <style name="TextLable" parent="TextAppearance.AppCompat">
         <item name="android:textColorHint">@color/app_brown</item>
         <item name="colorAccent">@color/app_brown</item>
+
         <item name="android:textSize">@dimen/x14</item>
     </style>
 

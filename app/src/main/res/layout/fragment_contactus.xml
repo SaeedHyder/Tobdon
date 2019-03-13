@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/setting_back"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/x15"
+    android:paddingStart="@dimen/x15">
+
+    <com.app.tobdon.ui.views.AnyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/have_a_query_or_suggestion"
+        android:layout_marginTop="@dimen/x15"
+        android:textColor="@color/app_black_text"
+        android:textSize="@dimen/x13"
+        app:typeface="@string/font_normal" />
+
+    <com.app.tobdon.ui.views.AnyEditTextView
+        android:id="@+id/edtQuery"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x160"
+        android:hint="Enter your query here.."
+        android:gravity="start"
+        android:padding="@dimen/x10"
+        android:imeOptions="actionDone"
+        android:layout_marginTop="@dimen/x15"
+        android:background="@drawable/contactus_box"
+        android:textColor="@color/app_black_text"
+        android:textSize="@dimen/x13"
+        app:typeface="@string/font_normal" />
+
+
+
+    <Button
+        android:id="@+id/SubmitButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/x15"
+        android:background="@drawable/button_brown"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x14" />
+
+</LinearLayout>

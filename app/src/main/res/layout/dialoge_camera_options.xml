@@ -24,7 +24,7 @@
             android:layout_marginRight="@dimen/x20"
             android:alpha="0.7"
             android:gravity="center"
-            android:text="@string/upload_photo"
+            android:text="@string/upload_media"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:typeface="@string/font_normal" />
@@ -47,7 +47,7 @@
             android:layout_marginTop="@dimen/x30"
             android:alpha="0.7"
             android:gravity="center"
-            android:text="@string/how_do_you_want_to_set_your_photo"
+            android:text="@string/choose_media_type"
             android:textColor="@color/black"
             android:textSize="@dimen/x17"
             app:typeface="@string/font_normal" />
@@ -76,7 +76,7 @@
             android:layout_marginRight="@dimen/x7"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:text="@string/camera"
+            android:text="@string/photo"
             android:textAllCaps="false"
             android:textColor="@color/app_brown"
             android:textSize="@dimen/x16" />
@@ -97,7 +97,7 @@
             android:layout_marginLeft="@dimen/x7"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:text="@string/gallery"
+            android:text="@string/video"
             android:textAllCaps="false"
             android:textColor="@color/app_brown"
             android:textSize="@dimen/x16" />

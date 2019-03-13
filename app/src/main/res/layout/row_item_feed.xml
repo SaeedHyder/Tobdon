@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cvMainFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/x15"
@@ -145,6 +146,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/btnLike"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -157,6 +159,7 @@
                     android:background="@color/view_line_color_2" />
 
                 <ImageView
+                    android:id="@+id/btnComment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -169,6 +172,7 @@
                     android:background="@color/view_line_color_2" />
 
                 <ImageView
+                    android:id="@+id/btnShare"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -181,6 +185,7 @@
                     android:background="@color/view_line_color_2" />
 
                 <ImageView
+                    android:id="@+id/btnLPopup"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
